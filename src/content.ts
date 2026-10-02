@@ -1,0 +1,1 @@
+chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => { if (message.type !== 'read-patch') return; sendResponse({ url: location.href, title: document.title, text: document.body?.innerText ?? '' }); });
