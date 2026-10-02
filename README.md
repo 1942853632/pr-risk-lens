@@ -2,6 +2,10 @@
 
 PR Risk Lens is a local-only Chrome side-panel extension that turns a GitHub pull request patch into an explainable change-risk report.
 
+## Interview-ready engineering story
+
+The project models review risk as a transparent rule engine rather than a mysterious model score. Unified diff parsing, rule IDs, evidence snippets and a stable verdict make the result useful in a real review workflow and straightforward to extend.
+
 ## Features
 
 - Parses unified Git diffs and counts files/additions/deletions
@@ -21,6 +25,13 @@ pnpm build
 ```
 
 Load `dist/` from `chrome://extensions`, open a GitHub `.patch` URL or a page containing a unified diff, then click **Scan PR**.
+
+## Repository map
+
+- `src/analyzer.ts`: diff parser, risk rules and Markdown export
+- `src/content.ts`: page-to-patch extraction adapter
+- `src/sidepanel.ts`: Chrome UI state and actions
+- `tests/analyzer.test.ts`: regression coverage for risk classification
 
 ## Engineering narrative
 
